@@ -10,4 +10,9 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
+
 }
+// beckend pega requisçoes http
+// put : é para update memso id
+// patch : nn muda as informações, só endereco 
+// como enviar dados para backend --> json

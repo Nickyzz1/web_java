@@ -1,0 +1,6 @@
+// beckend pega requisçoes http
+// put : é para update memso id
+// patch : nn muda as informações, só endereco 
+// como enviar dados para backend --> json
+status : 500(erro interno no servidor), 418(i not a cheached) 400(bad-request) requisição incorreta, mandou a requisição faltando valor, 200(deu certo), 404(not found)
+// job: receber requisçoes e fazer controladores (controllers)
