@@ -1,0 +1,12 @@
+versão:
+a.b.c
+c -> correção de bugs, patch, (por isso evitamos a pegar a ver~soa a.b.0)
+b -> minor: feature a mais (ainda va rodar) td que vc tinha antes continua tendo, só tem mais
+a -> quebra compatibilidade, major, geralemnte não funciona quando muda a 'a'
+preview: features novas
+alfa: versão completamente inicial, para testes, quebrada
+beta: verão incial, quebrada porém melhor que alfa
+snapshot: atualização sme mudar a versão(bom usar para projetos até achar o bug)
+rc: realize candidate, pronta para lançamento
+lts: long time suport, versões que a empresa se propôs a atualizar e dar ajustes para melhorar sempre, update de segurança por mais tempo
+--> precisa atualizar as aplicações, as vezes a empresa tem tutorial para mudar algumas coisas de versão
