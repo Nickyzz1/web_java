@@ -4,3 +4,5 @@
 // como enviar dados para backend --> json
 status : 500(erro interno no servidor), 418(i not a cheached) 400(bad-request) requisição incorreta, mandou a requisição faltando valor, 200(deu certo), 404(not found)
 // job: receber requisçoes e fazer controladores (controllers)
+// rodar esse f5
+// rodar do trevis dotnet run

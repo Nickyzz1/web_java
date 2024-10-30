@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,13 +11,15 @@ import com.example.demo.controllers.dto.Palindrome;
 @RequestMapping("/palindrome")
 public class IsPalindrome {
 
+    @SuppressWarnings("unlikely-arg-type")
     @GetMapping("/{word}")
-    public Palindrome palindrome(@PathVariable String word, Bollean palindrome) {
+    public Palindrome palindrome(@PathVariable String word, Boolean palindrome) {
 
-        
-        var result = word.
+        StringBuilder p = new StringBuilder(word).reverse();
 
-        return new Palindrome(word, null)
+        var pal = p.equals(word)? true : false;
+
+        return new Palindrome(p, pal);
 
     }
     

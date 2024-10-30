@@ -12,6 +12,9 @@ import com.example.demo.controllers.dto.LoginData;
 @RequestMapping("/user")
 public class UserController {
 
+    // @Autowired
+    // LoginService service;
+
     @PostMapping
     public ResponseEntity<String> login(@RequestBody LoginData data)
     {
