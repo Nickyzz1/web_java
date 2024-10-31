@@ -1,5 +1,5 @@
 package com.example.demo.controllers.dto;
 
-public record CollatzConjecture (
+public record CollatzDto (
     Float newCurrent, Boolean status, String msg
 ) {}

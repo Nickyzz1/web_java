@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controllers;
 
 
 import java.util.InputMismatchException;
@@ -17,17 +17,14 @@ import java.net.http.HttpResponse;
 import com.google.gson.Gson;
 import java.util.regex.Pattern;
 
-
-
-import com.example.demo.controllers.CepInfo;
-import com.example.demo.controllers.dto.Validator;
+import com.example.demo.controllers.dto.ValidatorDto;
 
 @RestController
 @RequestMapping("validar")
-public class CuritibaRegister {
+public class CuritibaRegisterController {
 
     @GetMapping("/{cpf}/{cep}")
-    public Validator validarCpfCep(@PathVariable String cpf, @PathVariable String cep) {
+    public ValidatorDto validarCpfCep(@PathVariable String cpf, @PathVariable String cep) {
 
         boolean isValidCpf = isValidCpf(cpf);
         boolean isValidCep = isValidCep(cep);
@@ -35,21 +32,21 @@ public class CuritibaRegister {
         if (isValidCpf && isValidCep) {
             
             if(isCuritibaCep(cep))
-                return new Validator("cpf válido e cep de curitiba");
-            return new Validator("cpf valido e cep não é de curitiba");
+                return new ValidatorDto("cpf válido e cep de curitiba");
+            return new ValidatorDto("cpf valido e cep não é de curitiba");
         }
         else if (isValidCpf && isValidCep == false) {
-            return new Validator("cpf válido e cep invalido");
+            return new ValidatorDto("cpf válido e cep invalido");
         }
         else if(isValidCpf == false && isValidCep) {
 
             if(isCuritibaCep(cep))
-                return new Validator("cpf inválido e cep de curitiba");
+                return new ValidatorDto("cpf inválido e cep de curitiba");
 
-            return new Validator("cpf inválido e cep não é de curitiba");
+            return new ValidatorDto("cpf inválido e cep não é de curitiba");
 
         } else {
-            return new Validator ("ambos dados inválidos");
+            return new ValidatorDto ("ambos dados inválidos");
         }
     }
 

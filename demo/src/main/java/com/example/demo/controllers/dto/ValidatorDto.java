@@ -1,5 +1,5 @@
 package com.example.demo.controllers.dto;
 
-public record Validator (
+public record ValidatorDto (
     String msg
 ) {}

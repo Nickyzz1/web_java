@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.controllers.dto.CollatzConjecture;
+import com.example.demo.controllers.dto.CollatzDto;
 
 
 @RestController
 @RequestMapping("/collatz")
-public class Collatz {
+public class CollatzController {
 
     @GetMapping("/{curr}/{step}")
-    public CollatzConjecture applyCollatz(@PathVariable Float curr, @PathVariable Integer step) {
+    public CollatzDto applyCollatz(@PathVariable Float curr, @PathVariable Integer step) {
 
         Boolean status = true;
 
@@ -24,7 +24,7 @@ public class Collatz {
 
                 status = !status;
 
-                return new CollatzConjecture(curr, status, "Erro ao enviar número inválido");
+                return new CollatzDto(curr, status, "Erro ao enviar número inválido");
 
             } else {
 
@@ -33,13 +33,13 @@ public class Collatz {
                     curr = collatz(curr);
                 }
 
-                return new CollatzConjecture(curr, status, "Função executada com sucesso");
+                return new CollatzDto(curr, status, "Função executada com sucesso");
 
             }
         } else {
 
             status = !status;
-            return new CollatzConjecture(curr, status, "Erro ao enviar número nulo");
+            return new CollatzDto(curr, status, "Erro ao enviar número nulo");
         }
     }
       

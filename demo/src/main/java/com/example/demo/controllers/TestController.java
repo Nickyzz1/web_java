@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.controllers.dto.SumResult;
+import com.example.demo.controllers.dto.SumResultDto;
 
 @RestController
 @RequestMapping("/test")
@@ -17,7 +17,7 @@ public class TestController {
     // }
 
     @GetMapping("/{a}")
-    public SumResult test(@PathVariable Integer a, Integer b) 
+    public SumResultDto test(@PathVariable Integer a, Integer b) 
     {
         if (b == null) {
             b = 2;
@@ -25,7 +25,7 @@ public class TestController {
 
         var result= a + b;
         var isEven = result %2 == 0;
-        return new SumResult(result, isEven);
+        return new SumResultDto(result, isEven);
     }
 
     // @RequestMapping("/testIsNull")
