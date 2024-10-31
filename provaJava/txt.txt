@@ -1,0 +1,95 @@
+biblia:
+
+- todo método que for agir a partir do enveto d eum botão precisa ter @FXML isso causa erros como : invoke tagert exeception, reflect.DirectMethodHandleAccessor.invoke,  Error resolving onAction='#createAccount', either the event handler is not in the Namespace
+
+- nada pode estar duplicado nos fxml, nem text nem button pois isso causa parseint error execpition
+
+- todos os campos no fxml que terão alguma interação, por exemplo textField para pegar nome, botão para dar submit, precisam estar no topo do script nomeados acadav um com @FXML antes;
+
+- META-INF precis estar na com do resourcers
+
+- Usando o EntityManager, você pode executar operações de persistência. Isso inclui:
+Persistir novas entidades no banco de dados (entityManager.persist(entity)).
+Buscar entidades (entityManager.find(EntityClass.class, primaryKey)).
+Atualizar entidades gerenciadas.
+Remover entidades (entityManager.remove(entity)).
+Fazer consultas usando JPQL (Java Persistence Query Language) ou Criteria API.
+
+métodos do fxcollections:
+
+.observableList() --> retorna uma lista observavel
+
+ObservableList<String> list = FXCollections.observableArrayList("Item 1", "Item 2"); --> retorna uma lista obervavel que começa com elementos
+
+List<String> regularList = new ArrayList<>();
+ObservableList<String> observableList = FXCollections.observableList(regularList); --> cria uam lista observavel a partir de uma lista que já existe
+
+como criar, adicionar e remover uma lista obervavel com fccollection:
+
+ObservableList<String> fruits = FXCollections.observableArrayList("Apple", "Banana", "Cherry");
+
+// Adicionando um novo elemento
+fruits.add("Date");
+
+// Removendo um elemento
+fruits.remove("Banana");
+
+// Imprimindo a lista
+fruits.forEach(System.out::println);
+
+
+
+createquery: usado para fazer consultas ao bando de dados:
+
+// para seleconar todos os intens de uma tabela no bandod e dados
+List<Product> products = entityManager.createQuery("FROM Product", Product.class).getResultList();
+
+// para fazer isso porém com um condição:
+
+List<Product> products = entityManager.createQuery("FROM Product WHERE priceProd > :minPrice", Product.class)
+                                      .setParameter("minPrice", 100.0)
+                                      .getResultList();
+
+                                      // para ordenar:
+
+                                      List<Product> products = entityManager.createQuery("FROM Product ORDER BY priceProd ASC", Product.class).getResultList();
+
+
+para joins:
+
+List<Object[]> results = entityManager.createQuery("SELECT p, c FROM Product p JOIN p.category c", Object[].class).getResultList();
+
+
+para contar o total de produtos:
+
+Long count = entityManager.createQuery("SELECT COUNT(p) FROM Product p", Long.class).getSingleResult();
+
+subconsulta:
+
+List<Product> products = entityManager.createQuery("FROM Product p WHERE p.priceProd > (SELECT AVG(p2.priceProd) FROM Product p2)", Product.class).getResultList();
+
+// para pegar média
+
+Double averagePrice = entityManager.createQuery("SELECT AVG(p.priceProd) FROM Product p", Double.class).getSingleResult();
+
+// para group by:
+
+List<Object[]> results = entityManager.createQuery("SELECT c.name, COUNT(p) FROM Product p JOIN p.category c GROUP BY c.name", Object[].class).getResultList();
+
+A exceção org.hibernate.PersistentObjectException: detached entity passed to persist que você está enfrentando ocorre porque você está tentando persistir uma entidade que já foi gerenciada pelo Hibernate em uma sessão anterior, mas agora está "desanexada" (detached).
+
+Causas Comuns
+Uso de persist() em uma Entidade Desanexada:
+
+O EntityManager do Hibernate não permite a persistência de entidades que já foram gerenciadas anteriormente. Se uma entidade já foi carregada em uma transação anterior, ela não pode ser persistida novamente sem ser mesclada primeiro.
+Tentativa de Persistir um Objeto Existente:
+
+Se você está tentando adicionar um Cart que já existe (ou foi carregado anteriormente), você deve usar merge() em vez de persist(). O merge() atualiza a entidade existente ou cria uma nova se ela não estiver presente.
+
+controller is null
+Esse erro significa que o objeto controller está nulo quando você tenta chamar o método atualizarTabelaCart() no CartController. Isso pode ser causado por uma falha ao obter a instância do controlador da cena, que ocorre normalmente se o FXMLLoader não carregar o arquivo FXML corretamente ou se o método de obtenção do controlador estiver incorreto.
+
+
+* perfil de usuário
+* 
+
