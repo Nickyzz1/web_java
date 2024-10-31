@@ -1,10 +1,9 @@
-package com.example.demo.repository;
+package com.example.demo.repositories;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.example.demo.impl.LoginServiceImpl;
-import com.example.demo.services.ProductService;
+import com.example.demo.impl.ProductServiceImpl;
 
 @Configuration
 public class ProductRepository {
@@ -13,7 +12,7 @@ public class ProductRepository {
     //  @Configuration indica que a classe pode ser usada pelo Spring IoC Container como uma fonte de definições de beans
 
       @Bean
-        public ProductService productService () {
+        public ProductServiceImpl productService () {
             return new ProductServiceImpl();
         }
 }

@@ -7,23 +7,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.controllers.dto.UserDto;
+import com.example.demo.dto.LoginData;
+import com.example.demo.impl.ExampleLoginService;
 import com.example.demo.services.LoginService;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
+    
     @Autowired
     LoginService service;
 
     @PostMapping
-    public ResponseEntity<String> login(@RequestBody UserDto data)
+    public ResponseEntity<String> login(@RequestBody LoginData data)
     {
-        if(data.login().equals("admin") && data.password().equals("batata")) {
+        var id = service.login(data.Login(), data.Password());
 
-            return ResponseEntity.ok("bem vindo");
-        }
-        return ResponseEntity.status(404).build();
+        if (id == 1)
+            return ResponseEntity.ok("Bem-vindo donzinho!");
+
+        return ResponseEntity
+            .status(404)
+            .build();
     }
+
 }

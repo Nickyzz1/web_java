@@ -1,0 +1,12 @@
+123.456.789-00 (soma dos dígitos não valida)
+111.444.777-35 (não é um CPF válido)
+987.654.321-00 (soma dos dígitos não valida)
+000.000.000-00 (não deve ser considerado válido)
+555.666.777-88 (não é um CPF válido)
+
+CEPs Inválidos
+12345-678 (não é um formato válido)
+ABCDE-FGH (letras não são permitidas)
+00000-000 (todos zeros)
+1234-567 (parte inicial com menos de 5 dígitos)
+12-34567 (parte inicial com menos de 5 dígitos)
