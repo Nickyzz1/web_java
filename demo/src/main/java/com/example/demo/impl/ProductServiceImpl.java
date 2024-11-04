@@ -13,6 +13,14 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    // Objetivo: O principal objetivo do @Autowired é permitir que o Spring gerencie as dependências entre os componentes de sua aplicação. Isso significa que o Spring automaticamente cria e injeta as instâncias necessárias de classes que você precisa em outras classes.
+
+// Como Funciona: Quando você coloca @Autowired em um campo (como private ProductRepository productRepository;), o Spring:
+
+// Localiza um bean do tipo ProductRepository que está registrado no contexto do Spring.
+// Cria uma instância desse bean (se ainda não houver uma).
+// Injeta essa instância no campo productRepository da classe ProductServiceImpl.
+
     @Override
     public List<Product> getAllProducts() {
         return productRepository.findAll(); // Chama o método do repositório
