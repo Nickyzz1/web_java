@@ -39,3 +39,18 @@ Quando usar?: Use quando você precisa de informações ou estado que devem ser 
 Prototype: Novo copo a cada pedido.
 Request: Novo prato a cada pedido de comida.
 Session: Um cartão de fidelidade durante a visita à cafeteria.
+
+serviço: é a interface
+impl: implementa o serviço
+repositories: gerencia a conexão cpom bando de dados
+controller: gerencia as requisções http
+
+controllers:
+
+Receber Requisições: A controller recebe as requisições do cliente. Isso pode incluir requisições para obter dados, criar novos registros, atualizar ou deletar registros, etc.
+
+Delegar Chamadas ao Serviço: Após receber uma requisição, a controller delega as chamadas para a camada de serviço. A lógica de negócio é tratada na camada de serviço, enquanto a controller apenas chama os métodos apropriados.
+
+Retornar Respostas: Depois que o serviço processa a solicitação, a controller pega o resultado e o transforma em uma resposta adequada para o cliente, geralmente em formato JSON ou HTML.
+
+Manipular Erros: A controller pode lidar com erros e exceções que ocorrem durante o processamento da solicitação, retornando mensagens de erro apropriadas.

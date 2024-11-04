@@ -5,11 +5,9 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.models.Vehicle;
+import com.example.demo.model.Vehicle;
 
 @Repository
 public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
-
-    List<Vehicle> findByType(String type); // prercisa ser o eatao nome da coluna
-
+    List<Vehicle> findByType(String type);
 }

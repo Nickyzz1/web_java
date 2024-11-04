@@ -10,3 +10,7 @@ ABCDE-FGH (letras não são permitidas)
 00000-000 (todos zeros)
 1234-567 (parte inicial com menos de 5 dígitos)
 12-34567 (parte inicial com menos de 5 dígitos)
+
+services = interfaces
+impl : onde vc coloca a interface
+repositories: configuração dos beans, o @configuration do spring --> classes que interagem com o banco de dados e contém métodos de operação para slavar, editar, excluir e criar
