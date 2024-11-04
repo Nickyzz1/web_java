@@ -1,5 +1,7 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.datatype.jsr310.ser.YearMonthSerializer;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,12 +18,20 @@ public class City {
     @Column(name = "nomeCidade")
     private String name;
 
+    @Column(name = "paisCol")
+    private String country;
+
+    @Column(name = "estadoSiglaCol")
+    private String state;
+
     // Construtor sem parâmetros (necessário para JPA)
     public City() {}
 
     // Construtor com parâmetros
-    public City(String name) {
+    public City(String country, String name, String state) {
         this.name = name;
+        this.state = state;
+        this.country = country;
     }
 
     public long getId() {
@@ -38,6 +48,22 @@ public class City {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getEstate() {
+        return state;
+    }
+
+    public void setEstate(String estate) {
+        this.state = estate;
     }
     
 }

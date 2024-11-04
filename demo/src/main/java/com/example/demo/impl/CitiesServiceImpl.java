@@ -1,35 +1,38 @@
-package com.example.demo.impl;
+package com.example.demo.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 import com.example.demo.models.City;
 import com.example.demo.repositories.CitiesRepository;
-import com.example.demo.services.CitiesService;
 
+@Service
 public class CitiesServiceImpl implements CitiesService {
 
-    @Autowired // diz ao código que ele possui dependencias
+    @Autowired
     private CitiesRepository citiesRepository;
 
     @Override
     public List<City> getAllCities() {
-        // TODO Auto-generated method stub
         return citiesRepository.findAll();
     }
 
     @Override
     public City createCity(City city) {
-        // TODO Auto-generated method stub
-        return citiesRepository.findByName(String name);
+        return citiesRepository.save(city);
     }
 
     @Override
     public List<City> findCityByName(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findCityByName'");
+        return citiesRepository.findByName(name); // Supondo que você tenha um método findByName no repositório.
     }
 
-    
+    public void createInitialCities() {
+        citiesRepository.save(new City("Brazil", "Curitiba", "PR"));
+        citiesRepository.save(new City("Japan", "Tokyo", "KT"));
+        citiesRepository.save(new City("United States", "New York", "NY"));
+        citiesRepository.save(new City("Chéquia", "Praga", "PR"));
+    }
 }
