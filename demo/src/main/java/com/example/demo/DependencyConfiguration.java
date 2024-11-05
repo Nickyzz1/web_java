@@ -4,8 +4,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+import com.example.demo.impl.CitiesServiceImpl;
 import com.example.demo.impl.LoginServiceImpl;
 import com.example.demo.impl.ProductServiceImpl;
+import com.example.demo.services.CitiesService;
 import com.example.demo.services.LoginService;
 import com.example.demo.services.ProductService;
 
@@ -25,6 +27,11 @@ public class DependencyConfiguration {
     @Scope("singleton")
     public ProductService productServiceDependency () {
         return new ProductServiceImpl();
+    }
+
+    @Bean
+    public CitiesService citiesService() {
+        return  new CitiesServiceImpl();
     }
 
 }

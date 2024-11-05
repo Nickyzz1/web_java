@@ -1,7 +1,5 @@
 package com.example.demo.models;
 
-import com.fasterxml.jackson.datatype.jsr310.ser.YearMonthSerializer;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

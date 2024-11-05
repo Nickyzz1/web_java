@@ -54,3 +54,14 @@ Delegar Chamadas ao Serviço: Após receber uma requisição, a controller deleg
 Retornar Respostas: Depois que o serviço processa a solicitação, a controller pega o resultado e o transforma em uma resposta adequada para o cliente, geralmente em formato JSON ou HTML.
 
 Manipular Erros: A controller pode lidar com erros e exceções que ocorrem durante o processamento da solicitação, retornando mensagens de erro apropriadas.
+
+http://localhost:8080/cities
+
+métdoos comuns do jpa repository:
+
+O JpaRepository fornece automaticamente métodos CRUD para operações comuns, como:
+
+findAll() — para buscar todos os registros.
+save() — para salvar ou atualizar um registro.
+findById() — para buscar um registro pelo ID.
+delete() — para deletar um registro.
